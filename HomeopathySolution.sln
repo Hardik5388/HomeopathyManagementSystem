@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homeopathy.Web", "Homeopathy.Web\Homeopathy.Web.csproj", "{956AF272-0CE6-4EB3-AAAD-B63258A6216A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homeopathy.Domain", "Homeopathy.Domain\Homeopathy.Domain.csproj", "{66B15F93-4076-4289-9D86-3E9F8A77126A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homeopathy.Application", "Homeopathy.Application\Homeopathy.Application.csproj", "{EBC3E1F3-969C-471C-8E74-54AA37C4C609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homeopathy.Infrastructure", "Homeopathy.Infrastructure\Homeopathy.Infrastructure.csproj", "{B82F0D57-4A80-4655-A6B5-A813218996E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{E2E3C221-AF69-4533-B74C-27261FACA632}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{8B5D6A6D-D19F-48D0-A30E-57061358723B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{956AF272-0CE6-4EB3-AAAD-B63258A6216A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956AF272-0CE6-4EB3-AAAD-B63258A6216A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956AF272-0CE6-4EB3-AAAD-B63258A6216A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956AF272-0CE6-4EB3-AAAD-B63258A6216A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66B15F93-4076-4289-9D86-3E9F8A77126A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B15F93-4076-4289-9D86-3E9F8A77126A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B15F93-4076-4289-9D86-3E9F8A77126A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B15F93-4076-4289-9D86-3E9F8A77126A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC3E1F3-969C-471C-8E74-54AA37C4C609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC3E1F3-969C-471C-8E74-54AA37C4C609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC3E1F3-969C-471C-8E74-54AA37C4C609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC3E1F3-969C-471C-8E74-54AA37C4C609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B82F0D57-4A80-4655-A6B5-A813218996E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82F0D57-4A80-4655-A6B5-A813218996E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B82F0D57-4A80-4655-A6B5-A813218996E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B82F0D57-4A80-4655-A6B5-A813218996E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{956AF272-0CE6-4EB3-AAAD-B63258A6216A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{66B15F93-4076-4289-9D86-3E9F8A77126A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{EBC3E1F3-969C-471C-8E74-54AA37C4C609} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B82F0D57-4A80-4655-A6B5-A813218996E5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E0EBC6A-4375-4A0C-BE95-4510A55A6026}
+	EndGlobalSection
+EndGlobal

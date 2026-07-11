@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net9.0\Homeopathy.Infrastructure.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net9.0\Homeopathy.Infrastructure.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\Homeopathy.Infrastructure.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+	<ItemGroup>
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+
+  </PackageReference>
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+
+  </PackageReference>
+  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="bin\Debug\net9.0\" />
+	  <Folder Include="Caching\" />
+	  <Folder Include="Email\" />
+	  <Folder Include="Identity\" />
+	  <Folder Include="Logging\" />
+	  <Folder Include="obj\Debug\net9.0\refint\" />
+	  <Folder Include="obj\Debug\net9.0\ref\" />
+	  <Folder Include="Persistence\Migrations\" />
+	  <Folder Include="Persistence\Seed\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="Storage\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="obj\Debug\net9.0\Homeopathy.Infrastructure.AssemblyInfoInputs.cache" />
+	  <None Include="obj\Debug\net9.0\Homeopathy.Infrastructure.assets.cache" />
+	  <None Include="obj\Debug\net9.0\Homeopathy.Infrastructure.csproj.AssemblyReference.cache" />
+	  <None Include="obj\Debug\net9.0\Homeopathy.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig" />
+	  <None Include="obj\Homeopathy.Infrastructure.csproj.nuget.g.props" />
+	  <None Include="obj\Homeopathy.Infrastructure.csproj.nuget.g.targets" />
+	  <None Include="obj\project.nuget.cache" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Homeopathy.Domain\Homeopathy.Domain.csproj" />
+	</ItemGroup>
+</Project>
