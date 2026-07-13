@@ -38,10 +38,11 @@ namespace Homeopathy.Infrastructure.Repositories.Common
             _dbSet.Remove(entity);
         }
 
-        public async Task<bool> ExistsAsync(int id)
-        {
-            return await _dbSet.AnyAsync(x => x.Id == id);
-        }
+        //public async Task<bool> ExistsAsync(int id)
+        //{
+        //    // issue
+        //    return await _dbSet.AnyAsync(x => x.Id == id);
+        //}
 
         public async Task<List<TEntity>> GetAllAsync()
         {
