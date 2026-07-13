@@ -1,0 +1,121 @@
+﻿using AutoMapper;
+using Homeopathy.Application.DTOs.Clinics;
+using Homeopathy.Application.Interfaces.Clinics;
+using Homeopathy.Domain.Entities;
+using Homeopathy.Domain.Interfaces.Clinics;
+using Homeopathy.Domain.Interfaces.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Homeopathy.Application.Services.Clinics
+{
+    public class ClinicService : IClinicService
+    {
+        private readonly IClinicRepository _clinicRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+
+        public ClinicService(
+            IClinicRepository clinicRepository,
+            IUnitOfWork unitOfWork, IMapper mapper)
+        {
+            _clinicRepository = clinicRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
+        }
+        public async Task AddAsync(ClinicDto dto)
+        {
+            //var clinic = new Clinic
+            //{
+            //    ClinicCode = dto.ClinicCode,
+            //    Name = dto.Name,
+            //    Email = dto.Email,
+            //    PhoneNumber = dto.PhoneNumber,
+            //    IsActive = dto.IsActive,
+            //    CreatedAt = DateTime.UtcNow
+            //};
+            var clinic = _mapper.Map<Clinic>(dto);
+
+            clinic.CreatedAt = DateTime.UtcNow;
+
+            await _clinicRepository.AddAsync(clinic);
+
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var clinic = await _clinicRepository.GetByIdAsync(id);
+
+            if (clinic == null)
+                throw new Exception("Clinic not found.");
+
+            clinic.IsDeleted = true;
+            clinic.UpdatedAt = DateTime.UtcNow;
+
+            _clinicRepository.Update(clinic);
+
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<List<ClinicDto>> GetAllAsync()
+        {
+            var clinics = await _clinicRepository.GetAllAsync();
+
+            return _mapper.Map<List<ClinicDto>>(clinics);
+
+            //return clinics.Select(x => new ClinicDto
+            //{
+            //    Id = x.Id,
+            //    ClinicCode = x.ClinicCode,
+            //    Name = x.Name,
+            //    Email = x.Email,
+            //    PhoneNumber = x.PhoneNumber,
+            //    IsActive = x.IsActive
+            //}).ToList();
+        }
+
+        public async Task<ClinicDto?> GetByIdAsync(int id)
+        {
+            var clinic = await _clinicRepository.GetByIdAsync(id);
+
+            if (clinic == null)
+                return null;
+
+            return new ClinicDto
+            {
+                Id = clinic.Id,
+                ClinicCode = clinic.ClinicCode,
+                Name = clinic.Name,
+                Email = clinic.Email,
+                PhoneNumber = clinic.PhoneNumber,
+                IsActive = clinic.IsActive
+            };
+        }
+
+        public async Task UpdateAsync(ClinicDto dto)
+        {
+            var clinic = await _clinicRepository.GetByIdAsync(dto.Id);
+
+            //if (clinic == null)
+            //    throw new Exception("Clinic not found.");
+
+            //clinic.Name = dto.Name;
+            //clinic.Email = dto.Email;
+            //clinic.PhoneNumber = dto.PhoneNumber;
+            //clinic.IsActive = dto.IsActive;
+            //clinic.UpdatedAt = DateTime.UtcNow;
+
+            _mapper.Map(dto, clinic);
+
+            clinic.UpdatedAt = DateTime.UtcNow;
+
+            _clinicRepository.Update(clinic);
+
+            await _unitOfWork.SaveChangesAsync();
+        }
+    }
+}

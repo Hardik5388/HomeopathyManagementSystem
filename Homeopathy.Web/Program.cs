@@ -1,8 +1,10 @@
+using Homeopathy.Application.Extensions;
 using Homeopathy.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -18,8 +20,10 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

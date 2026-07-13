@@ -17,6 +17,7 @@
     <Content Include="obj\project.assets.json" />
   </ItemGroup>
 	<ItemGroup>
+  <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
   <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
   <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
 
@@ -30,7 +31,6 @@
 	  <Folder Include="bin\Debug\net9.0\" />
 	  <Folder Include="Caching\" />
 	  <Folder Include="Email\" />
-	  <Folder Include="Identity\" />
 	  <Folder Include="Logging\" />
 	  <Folder Include="obj\Debug\net9.0\refint\" />
 	  <Folder Include="obj\Debug\net9.0\ref\" />
@@ -49,6 +49,7 @@
 	  <None Include="obj\project.nuget.cache" />
 	</ItemGroup>
 	<ItemGroup>
+	  <ProjectReference Include="..\Homeopathy.Application\Homeopathy.Application.csproj" />
 	  <ProjectReference Include="..\Homeopathy.Domain\Homeopathy.Domain.csproj" />
 	</ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
-﻿using Homeopathy.Domain.Interfaces.Repositories;
+﻿using Homeopathy.Domain.Common;
+using Homeopathy.Domain.Interfaces.Repositories;
 using Homeopathy.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Homeopathy.Infrastructure.Repositories.Common
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly HomeopathyDbContext _context;
         protected readonly DbSet<TEntity> _dbSet;
@@ -38,11 +39,11 @@ namespace Homeopathy.Infrastructure.Repositories.Common
             _dbSet.Remove(entity);
         }
 
-        //public async Task<bool> ExistsAsync(int id)
-        //{
-        //    // issue
-        //    return await _dbSet.AnyAsync(x => x.Id == id);
-        //}
+        public async Task<bool> ExistsAsync(int id)
+        {
+            
+            return await _dbSet.AnyAsync(x => x.Id == id);
+        }
 
         public async Task<List<TEntity>> GetAllAsync()
         {

@@ -1,4 +1,6 @@
 ﻿using Homeopathy.Domain.Entities;
+using Homeopathy.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Homeopathy.Infrastructure.Persistence
 {
-    public class HomeopathyDbContext : DbContext
+    public class HomeopathyDbContext : IdentityDbContext<ApplicationUser>
     {
         public HomeopathyDbContext(DbContextOptions<HomeopathyDbContext> options) : base(options)
         {
