@@ -1,0 +1,77 @@
+﻿@using Homeopathy.Web.Areas.Admin.ViewModels
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="page-header mb-4">
+    <h1>Dashboard</h1>
+</div>
+
+<!-- Replace your old cards with this -->
+<div class="row g-4">
+
+    <div class="col-lg-3 col-md-6">
+
+        <partial name="~/Areas/Admin/Views/Shared/Components/_StatCard.cshtml"
+                 model='new StatCardViewModel
+                 {
+                     Title = "Clinics",
+                     Value = 0,
+                     Description = "Total Registered Clinics",
+                     Icon = "bi-hospital",
+                     Color = "primary",
+                     ActionUrl = "/Admin/Clinic",
+                     GrowthText = "No change this month"
+                 }' />
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+
+        <partial name="~/Areas/Admin/Views/Shared/Components/_StatCard.cshtml"
+                 model='new StatCardViewModel
+                 {
+                     Title = "Doctors",
+                     Value = 0,
+                     Description = "Total Doctors",
+                     Icon = "bi-person-badge-fill",
+                     Color = "success",
+                     ActionUrl = "/Admin/Doctor",
+                     GrowthText = "No change this month"
+                 }' />
+
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+
+        <partial name="~/Areas/Admin/Views/Shared/Components/_StatCard.cshtml"
+                 model='new StatCardViewModel
+                 {
+                     Title = "Patients",
+                     Value = 0,
+                     Description = "Registered Patients",
+                     Icon = "bi-people-fill",
+                     Color = "warning",
+                     ActionUrl = "/Admin/Patient",
+                     GrowthText = "No change this month"
+                 }' />
+
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+
+        <partial name="~/Areas/Admin/Views/Shared/Components/_StatCard.cshtml"
+                 model='new StatCardViewModel
+                 {
+                     Title = "Appointments",
+                     Value = 0,
+                     Description = "Todays Appointments",
+                 Icon="bi-calendar-check-fill" ,
+                 Color="danger" ,
+                 ActionUrl="/Admin/Appointment" ,
+                 GrowthText="No change today"
+                 }' />
+
+    </div>
+
+</div>

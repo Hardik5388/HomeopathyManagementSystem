@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Homeopathy.Application.DTOs.Clinics;
+using Homeopathy.Application.Features.Clinics.Commands.CreateClinic;
+using Homeopathy.Application.Features.Clinics.Commands.UpdateClinic;
 using Homeopathy.Application.Interfaces.Clinics;
 using Homeopathy.Domain.Entities;
 using Homeopathy.Domain.Interfaces.Clinics;
@@ -26,7 +28,7 @@ namespace Homeopathy.Application.Services.Clinics
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task AddAsync(ClinicDto dto)
+        public async Task AddAsync(CreateClinicDto dto)
         {
             //var clinic = new Clinic
             //{
@@ -61,11 +63,11 @@ namespace Homeopathy.Application.Services.Clinics
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task<List<ClinicDto>> GetAllAsync()
+        public async Task<List<ClinicListDto>> GetAllAsync()
         {
             var clinics = await _clinicRepository.GetAllAsync();
 
-            return _mapper.Map<List<ClinicDto>>(clinics);
+            return _mapper.Map<List<ClinicListDto>>(clinics);
 
             //return clinics.Select(x => new ClinicDto
             //{
@@ -96,7 +98,7 @@ namespace Homeopathy.Application.Services.Clinics
             };
         }
 
-        public async Task UpdateAsync(ClinicDto dto)
+        public async Task UpdateAsync(UpdateClinicDto dto)
         {
             var clinic = await _clinicRepository.GetByIdAsync(dto.Id);
 

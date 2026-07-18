@@ -1,0 +1,179 @@
+﻿/* ==========================================
+   TOP NAVBAR
+   ========================================== */
+
+.top-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    height: var(--navbar-height);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Left */
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-title h5 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.nav-title small {
+    color: var(--text-light);
+    font-size: .85rem;
+}
+
+/* Sidebar Toggle */
+
+#sidebarToggle {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+    #sidebarToggle:hover {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+    }
+
+/* Right */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+    /* Buttons */
+
+    .nav-right .btn {
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        transition: var(--transition);
+    }
+
+        .nav-right .btn:hover {
+            background: #F1F5F9;
+        }
+
+/* Notification */
+
+.notification-btn {
+    position: relative;
+}
+
+    .notification-btn .badge {
+        font-size: .65rem;
+        padding: 4px 6px;
+    }
+
+/* User */
+
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 180px;
+}
+
+    .user-btn i {
+        font-size: 1.2rem;
+    }
+
+.user-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+    .user-name strong {
+        font-size: .92rem;
+        color: var(--text-dark);
+    }
+
+    .user-name small {
+        font-size: .75rem;
+        color: var(--text-light);
+    }
+
+/* Dropdown */
+
+.dropdown-menu {
+    border: none;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: var(--shadow-lg);
+}
+
+.dropdown-item {
+    border-radius: 10px;
+    padding: 10px 14px;
+    transition: .2s;
+}
+
+    .dropdown-item:hover {
+        background: #EFF6FF;
+    }
+
+    .dropdown-item i {
+        width: 22px;
+    }
+
+/* Notification List */
+
+.dropdown-header {
+    font-weight: 600;
+    color: var(--text-dark);
+    padding-bottom: 8px;
+}
+
+/* Responsive */
+
+@media (max-width:992px) {
+
+    .top-navbar {
+        padding: 0 16px;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .user-btn {
+        min-width: auto;
+    }
+}
+
+@media (max-width:768px) {
+
+    .nav-title small {
+        display: none;
+    }
+
+    .top-navbar {
+        height: 64px;
+    }
+}

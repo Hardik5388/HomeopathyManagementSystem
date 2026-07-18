@@ -1,0 +1,109 @@
+﻿@using Homeopathy.Web.Areas.Admin.ViewModels.Common
+@model Homeopathy.Web.Areas.Admin.ViewModels.Clinic.ClinicIndexViewModel
+
+@{
+    ViewData["Title"] = "Clinics";
+}
+
+@await Html.PartialAsync("_PageHeader",
+new PageHeaderViewModel
+{
+    Title = "Clinics",
+    Subtitle = "Manage clinics and their information.",
+    ButtonText = "Add Clinic",
+    ButtonUrl = Url.Action("Create", "Clinic", new { area = "Admin" }),
+    ButtonIcon = "bi bi-plus-circle"
+})
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th>Code</th>
+                        <th>Clinic Name</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                        <th width="150">Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @if (Model.Clinics.Any())
+                    {
+                        foreach (var clinic in Model.Clinics)
+                        {
+                            <tr>
+
+                                <td>@clinic.ClinicCode</td>
+
+                                <td>@clinic.Name</td>
+
+                                <td>@clinic.PhoneNumber</td>
+
+                                <td>
+
+                                    @if (clinic.IsActive)
+                                    {
+                                        <span class="badge bg-success">
+                                            Active
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">
+                                            Inactive
+                                        </span>
+                                    }
+
+                                </td>
+
+                                <td>
+
+                                    <a href="#" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+
+                                    <a href="#" class="btn btn-sm btn-outline-warning">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+
+                                    <a href="#" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+
+                            <td colspan="5" class="text-center py-4">
+
+                                No clinics found.
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

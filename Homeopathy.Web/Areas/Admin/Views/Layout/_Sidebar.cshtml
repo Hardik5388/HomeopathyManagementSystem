@@ -1,0 +1,204 @@
+﻿@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<aside class="sidebar">
+
+    <!-- Logo -->
+
+    <div class="sidebar-header">
+
+        <div class="logo">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+        </div>
+
+        <div class="logo-text">
+
+            <h5>HMS</h5>
+
+            <small>Healthcare Admin</small>
+
+        </div>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="menu-title">
+
+        MAIN
+
+    </div>
+
+    <nav class="sidebar-menu">
+
+        <a asp-area="Admin"
+           asp-controller="Dashboard"
+           asp-action="Index"
+           class="@(controller == "Dashboard" ? "active" : "")">
+
+            <i class="bi bi-grid-1x2-fill"></i>
+
+            <span class="menu-text">
+
+                Dashboard
+
+            </span>
+
+        </a>
+
+    </nav>
+
+    <!-- Management -->
+
+    <div class="menu-title">
+
+        MANAGEMENT
+
+    </div>
+
+    <nav class="sidebar-menu">
+
+        <a asp-area="Admin"
+           asp-controller="Clinic"
+           asp-action="Index"
+           class="@(controller == "Clinic" ? "active" : "")">
+
+            <i class="bi bi-hospital"></i>
+
+            <span class="menu-text">
+
+                Clinics
+
+            </span>
+
+        </a>
+
+        <a asp-area="Admin"
+           asp-controller="Doctor"
+           asp-action="Index"
+           class="@(controller == "Doctor" ? "active" : "")">
+
+            <i class="bi bi-person-badge-fill"></i>
+
+            <span class="menu-text">
+
+                Doctors
+
+            </span>
+
+        </a>
+
+        <a asp-area="Admin"
+           asp-controller="Patient"
+           asp-action="Index"
+           class="@(controller == "Patient" ? "active" : "")">
+
+            <i class="bi bi-people-fill"></i>
+
+            <span class="menu-text">
+
+                Patients
+
+            </span>
+
+        </a>
+
+        <a asp-area="Admin"
+           asp-controller="Appointment"
+           asp-action="Index"
+           class="@(controller == "Appointment" ? "active" : "")">
+
+            <i class="bi bi-calendar-check-fill"></i>
+
+            <span class="menu-text">
+
+                Appointments
+
+            </span>
+
+        </a>
+
+    </nav>
+
+    <!-- Reports -->
+
+    <div class="menu-title">
+
+        REPORTS
+
+    </div>
+
+    <nav class="sidebar-menu">
+
+        <a href="#">
+
+            <i class="bi bi-bar-chart-line-fill"></i>
+
+            <span class="menu-text">
+
+                Reports
+
+            </span>
+
+        </a>
+
+    </nav>
+
+    <!-- Settings -->
+
+    <div class="menu-title">
+
+        SETTINGS
+
+    </div>
+
+    <nav class="sidebar-menu">
+
+        <a href="#">
+
+            <i class="bi bi-gear-fill"></i>
+
+            <span class="menu-text">
+
+                Settings
+
+            </span>
+
+        </a>
+
+    </nav>
+
+    <!-- User -->
+
+    <div class="sidebar-user">
+
+        <div class="avatar">
+
+            <i class="bi bi-person-circle"></i>
+
+        </div>
+
+        <div>
+
+            <strong>
+
+                @User.Identity?.Name
+
+            </strong>
+
+            <br />
+
+            <small>
+
+                Super Administrator
+
+            </small>
+
+        </div>
+
+    </div>
+
+</aside>

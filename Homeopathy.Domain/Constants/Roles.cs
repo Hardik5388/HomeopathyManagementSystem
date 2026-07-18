@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Homeopathy.Domain.Constants
 {
-    public class Roles
+    public static class Roles
     {
         public const string SuperAdmin = "SuperAdmin";
 

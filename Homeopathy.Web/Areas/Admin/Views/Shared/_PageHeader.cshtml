@@ -1,0 +1,30 @@
+﻿@model Homeopathy.Web.Areas.Admin.ViewModels.Common.PageHeaderViewModel
+
+<div class="page-header">
+
+    <div class="page-header-content">
+
+        <h2>@Model.Title</h2>
+
+        @if (!string.IsNullOrWhiteSpace(Model.Subtitle))
+        {
+            <p>@Model.Subtitle</p>
+        }
+
+    </div>
+
+    @if (Model.ShowButton)
+    {
+        <a href="@Model.ButtonUrl" class="btn btn-primary">
+
+            @if (!string.IsNullOrWhiteSpace(Model.ButtonIcon))
+            {
+                <i class="@Model.ButtonIcon me-2"></i>
+            }
+
+            @Model.ButtonText
+
+        </a>
+    }
+
+</div>

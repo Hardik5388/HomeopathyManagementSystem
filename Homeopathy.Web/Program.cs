@@ -1,15 +1,27 @@
+using Homeopathy.Application.Common.Identity;
 using Homeopathy.Application.Extensions;
 using Homeopathy.Infrastructure.Extensions;
+using Homeopathy.Infrastructure.Identity;
+using Homeopathy.Web.Services.FileStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.Configure<DefaultAdminOptions>(
+    builder.Configuration.GetSection(DefaultAdminOptions.SectionName));
+builder.Services.AddScoped<IFileStorageService, FileStorageService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<IdentitySeeder>();
+    await seeder.SeedAsync();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -27,6 +39,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

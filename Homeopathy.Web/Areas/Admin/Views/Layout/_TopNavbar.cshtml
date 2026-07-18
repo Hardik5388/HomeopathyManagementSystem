@@ -1,0 +1,151 @@
+﻿@{
+    var userName = User.Identity?.Name ?? "Administrator";
+}
+
+<nav class="top-navbar">
+
+    <div class="nav-left">
+
+        <button id="sidebarToggle" class="btn btn-light border">
+            <i class="bi bi-list fs-4"></i>
+        </button>
+
+        <div class="nav-title">
+            <h5 class="mb-0 fw-bold">@ViewData["Title"]</h5>
+            <small class="text-muted">
+                Welcome back!
+            </small>
+        </div>
+
+    </div>
+
+    <div class="nav-right">
+
+        <!-- Notification -->
+
+        <div class="dropdown">
+
+            <button class="btn notification-btn position-relative"
+                    data-bs-toggle="dropdown">
+
+                <i class="bi bi-bell fs-5"></i>
+
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                    3
+
+                </span>
+
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+
+                <li class="dropdown-header">
+
+                    Notifications
+
+                </li>
+
+                <li>
+
+                    <a class="dropdown-item">
+
+                        Appointment booked
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a class="dropdown-item">
+
+                        New patient registered
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a class="dropdown-item">
+
+                        Doctor updated schedule
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- User -->
+
+        <div class="dropdown">
+
+            <button class="btn user-btn dropdown-toggle"
+                    data-bs-toggle="dropdown">
+
+                <i class="bi bi-person-circle"></i>
+
+                <div class="user-name">
+                    <strong>@userName</strong>
+                    <small>Administrator</small>
+                </div>
+
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+
+                <li>
+
+                    <a class="dropdown-item">
+
+                        <i class="bi bi-person"></i>
+
+                        My Profile
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a class="dropdown-item">
+
+                        <i class="bi bi-key"></i>
+
+                        Change Password
+
+                    </a>
+
+                </li>
+
+                <li><hr /></li>
+
+                <li>
+
+                    <form asp-controller="Account"
+                          asp-action="Logout"
+                          method="post">
+
+                        <button class="dropdown-item text-danger">
+
+                            <i class="bi bi-box-arrow-right"></i>
+
+                            Logout
+
+                        </button>
+
+                    </form>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

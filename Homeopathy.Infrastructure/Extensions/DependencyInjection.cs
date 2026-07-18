@@ -33,6 +33,7 @@ namespace Homeopathy.Infrastructure.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IClinicRepository, ClinicRepository>();
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<IdentitySeeder>();
 
             services
             .AddIdentity<ApplicationUser, IdentityRole>(options =>

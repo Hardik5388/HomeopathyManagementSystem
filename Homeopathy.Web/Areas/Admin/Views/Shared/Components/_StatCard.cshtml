@@ -1,0 +1,51 @@
+﻿@model Homeopathy.Web.Areas.Admin.ViewModels.StatCardViewModel
+
+<div class="stat-card">
+
+    <div class="stat-card-header">
+
+        <div class="stat-icon @Model.Color">
+
+            <i class="bi @Model.Icon"></i>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card-body">
+
+        <h6 class="stat-title">
+            @Model.Title
+        </h6>
+
+        <h2 class="stat-value">
+            @Model.Value
+        </h2>
+
+        <p class="stat-description">
+            @Model.Description
+        </p>
+
+    </div>
+
+    <div class="stat-card-footer">
+
+        <span class="growth">
+
+            <i class="bi bi-arrow-up-right"></i>
+
+            @Model.GrowthText
+
+        </span>
+
+        <a href="@Model.ActionUrl">
+
+            @Model.ActionText
+
+            <i class="bi bi-arrow-right-short"></i>
+
+        </a>
+
+    </div>
+
+</div>

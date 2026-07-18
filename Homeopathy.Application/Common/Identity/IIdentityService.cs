@@ -26,5 +26,9 @@ namespace Homeopathy.Application.Common.Identity
             string roleName);
 
         Task<string?> GetUserIdAsync(string email);
+
+        Task<bool> RoleExistsAsync(string roleName);
+
+        Task<bool> UserExistsAsync(string email);
     }
 }

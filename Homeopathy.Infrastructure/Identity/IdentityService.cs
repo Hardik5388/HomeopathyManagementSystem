@@ -107,5 +107,16 @@ namespace Homeopathy.Infrastructure.Identity
         {
             await _signInManager.SignOutAsync();
         }
+
+        public async Task<bool> RoleExistsAsync(string roleName)
+        {
+            return await _roleManager.RoleExistsAsync(roleName);
+        }
+
+        public async Task<bool> UserExistsAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            return user != null;
+        }
     }
 }

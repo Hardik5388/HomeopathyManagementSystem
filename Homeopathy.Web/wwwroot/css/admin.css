@@ -1,0 +1,140 @@
+﻿/* ===========================
+   Global Reset
+=========================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--body-bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===========================
+   Layout
+=========================== */
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    background: var(--body-bg);
+}
+
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: var(--transition);
+}
+
+.content-wrapper {
+    flex: 1;
+    padding: 24px;
+}
+
+/* ===========================
+   Typography
+=========================== */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+p {
+    margin-bottom: 0;
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.card {
+    border: none;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+    background: none;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn {
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+    .btn-primary:hover {
+        background: var(--primary-dark);
+        border-color: var(--primary-dark);
+    }
+
+/* ===========================
+   Tables
+=========================== */
+
+.table {
+    background: var(--surface);
+}
+
+    .table thead th {
+        border-bottom: 2px solid var(--border);
+        color: var(--text-dark);
+    }
+
+    .table tbody td {
+        vertical-align: middle;
+    }
+
+/* ===========================
+   Utilities
+=========================== */
+
+.shadow-sm {
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.shadow-md {
+    box-shadow: var(--shadow-md) !important;
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg);
+}

@@ -1,0 +1,175 @@
+﻿/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--sidebar-bg);
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 24px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #fff;
+}
+
+.logo-text h5 {
+    color: #fff;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.logo-text small {
+    color: #94A3B8;
+}
+
+/* ===========================
+   Section Title
+=========================== */
+
+.menu-title {
+    padding: 20px 24px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #94A3B8;
+    text-transform: uppercase;
+}
+
+/* ===========================
+   Menu
+=========================== */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px;
+}
+
+    .sidebar-menu a {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 16px;
+        margin-bottom: 6px;
+        border-radius: 12px;
+        color: #CBD5E1;
+        transition: var(--transition);
+    }
+
+        .sidebar-menu a i {
+            font-size: 18px;
+            width: 22px;
+            text-align: center;
+        }
+
+        .sidebar-menu a:hover {
+            background: var(--sidebar-hover);
+            color: #fff;
+        }
+
+        .sidebar-menu a.active {
+            background: var(--primary);
+            color: #fff;
+            font-weight: 600;
+        }
+
+/* ===========================
+   User Panel
+=========================== */
+
+.sidebar-user {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.sidebar-user strong {
+    color: #fff;
+}
+
+.sidebar-user small {
+    color: #94A3B8;
+}
+
+/* ===========================
+   Sidebar Collapse
+=========================== */
+
+.sidebar {
+    transition: width .3s ease;
+}
+
+.main-content {
+    transition: margin-left .3s ease;
+}
+
+body.sidebar-collapsed .sidebar {
+    width: 80px;
+}
+
+body.sidebar-collapsed .main-content {
+    margin-left: 80px;
+}
+
+body.sidebar-collapsed .menu-text,
+body.sidebar-collapsed .menu-title,
+body.sidebar-collapsed .logo-text,
+body.sidebar-collapsed .sidebar-user > div:last-child {
+    display: none;
+}
+
+body.sidebar-collapsed .sidebar-menu a {
+    justify-content: center;
+}
+
+    body.sidebar-collapsed .sidebar-menu a i {
+        margin: 0;
+    }
+
+body.sidebar-collapsed .sidebar-user {
+    justify-content: center;
+}

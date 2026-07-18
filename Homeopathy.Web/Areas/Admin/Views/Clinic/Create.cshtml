@@ -1,0 +1,41 @@
+﻿@model Homeopathy.Web.Areas.Admin.ViewModels.Clinic.ClinicCreateViewModel
+
+@using Homeopathy.Web.Areas.Admin.ViewModels.Common
+
+@{
+    ViewData["Title"] = "Create Clinic";
+}
+
+@await Html.PartialAsync("_PageHeader",
+new PageHeaderViewModel
+{
+    Title = "Create Clinic",
+    Subtitle = "Add a new clinic to the healthcare management system."
+})
+
+<form asp-action="Create"
+      method="post"
+      enctype="multipart/form-data">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <partial name="_ClinicForm" model="Model" />
+
+    <div class="d-flex justify-content-end gap-2">
+
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            Cancel
+        </a>
+
+        <button type="submit" class="btn btn-primary">
+            Save Clinic
+        </button>
+
+    </div>
+
+</form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
