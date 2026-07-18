@@ -1,0 +1,31 @@
+﻿@model Homeopathy.Web.Areas.Admin.ViewModels.Common.GridViewModel<dynamic>
+
+<div class="d-flex align-items-center gap-2">
+
+    <span>Show</span>
+
+    <select id="pageSize"
+            class="form-select form-select-sm"
+            style="width:90px;">
+
+        <option value="10" selected="@((Model.PageSize == 10))">
+            10
+        </option>
+
+        <option value="25" selected="@((Model.PageSize == 25))">
+            25
+        </option>
+
+        <option value="50" selected="@((Model.PageSize == 50))">
+            50
+        </option>
+
+        <option value="100" selected="@((Model.PageSize == 100))">
+            100
+        </option>
+
+    </select>
+
+    <span>entries</span>
+
+</div>

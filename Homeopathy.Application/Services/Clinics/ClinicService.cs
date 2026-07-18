@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Homeopathy.Domain.Common.Pagination;
 using Homeopathy.Application.DTOs.Clinics;
 using Homeopathy.Application.Features.Clinics.Commands.CreateClinic;
 using Homeopathy.Application.Features.Clinics.Commands.UpdateClinic;
+using Homeopathy.Application.Features.Clinics.Queries.GetClinicList;
 using Homeopathy.Application.Interfaces.Clinics;
 using Homeopathy.Domain.Entities;
 using Homeopathy.Domain.Interfaces.Clinics;
@@ -63,21 +65,23 @@ namespace Homeopathy.Application.Services.Clinics
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task<List<ClinicListDto>> GetAllAsync()
+        public async Task<PagedResult<ClinicListDto>> GetAllAsync(ClinicListRequest request)
         {
-            var clinics = await _clinicRepository.GetAllAsync();
+            var result = await _clinicRepository.GetPagedAsync(
+             request.SearchTerm,
+             request.IsActive,
+             request.PageNumber,
+             request.PageSize);
 
-            return _mapper.Map<List<ClinicListDto>>(clinics);
+            return new PagedResult<ClinicListDto>
+            {
+                Items = _mapper.Map<List<ClinicListDto>>(result.Items),
+                PageNumber = result.PageNumber,
+                PageSize = result.PageSize,
+                TotalCount = result.TotalCount
+            };
 
-            //return clinics.Select(x => new ClinicDto
-            //{
-            //    Id = x.Id,
-            //    ClinicCode = x.ClinicCode,
-            //    Name = x.Name,
-            //    Email = x.Email,
-            //    PhoneNumber = x.PhoneNumber,
-            //    IsActive = x.IsActive
-            //}).ToList();
+
         }
 
         public async Task<ClinicDto?> GetByIdAsync(int id)

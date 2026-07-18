@@ -1,0 +1,63 @@
+﻿@using Homeopathy.Domain.Common.Pagination
+@model PagedResult<dynamic>
+
+@if (Model.TotalPages > 1)
+{
+    <div class="d-flex justify-content-between align-items-center mt-4">
+
+        <div>
+            Showing
+            <strong>@(((Model.PageNumber - 1) * Model.PageSize) + 1)</strong>
+            to
+            <strong>@Math.Min(Model.PageNumber * Model.PageSize, Model.TotalCount)</strong>
+            of
+            <strong>@Model.TotalCount</strong>
+            entries
+        </div>
+
+        <nav>
+
+            <ul class="pagination mb-0">
+
+                <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+
+                    <a class="page-link"
+                       href="?PageNumber=@(Model.PageNumber - 1)&PageSize=@Model.PageSize">
+
+                        Previous
+
+                    </a>
+
+                </li>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+
+                        <a class="page-link"
+                           href="?PageNumber=@i&PageSize=@Model.PageSize">
+
+                            @i
+
+                        </a>
+
+                    </li>
+                }
+
+                <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+
+                    <a class="page-link"
+                       href="?PageNumber=@(Model.PageNumber + 1)&PageSize=@Model.PageSize">
+
+                        Next
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+}

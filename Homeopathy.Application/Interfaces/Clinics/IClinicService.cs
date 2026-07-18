@@ -1,6 +1,8 @@
-﻿using Homeopathy.Application.DTOs.Clinics;
+﻿using Homeopathy.Domain.Common.Pagination;
+using Homeopathy.Application.DTOs.Clinics;
 using Homeopathy.Application.Features.Clinics.Commands.CreateClinic;
 using Homeopathy.Application.Features.Clinics.Commands.UpdateClinic;
+using Homeopathy.Application.Features.Clinics.Queries.GetClinicList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace Homeopathy.Application.Interfaces.Clinics
 {
     public interface IClinicService
     {
-        Task<List<ClinicListDto>> GetAllAsync();
+        Task<PagedResult<ClinicListDto>> GetAllAsync(ClinicListRequest request);
 
         Task<ClinicDto?> GetByIdAsync(int id);
 

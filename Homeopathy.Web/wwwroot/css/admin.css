@@ -138,3 +138,8 @@ a {
 .rounded-lg {
     border-radius: var(--radius-lg);
 }
+.table thead th {
+    background: #F8FAFC;
+    font-weight: 600;
+    color: #374151;
+}

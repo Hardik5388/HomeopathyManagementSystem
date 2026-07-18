@@ -1,9 +1,11 @@
 ﻿using Homeopathy.Domain.Common;
+using Homeopathy.Domain.Common.Pagination;
 using Homeopathy.Domain.Entities;
 using Homeopathy.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,5 +18,12 @@ namespace Homeopathy.Domain.Interfaces.Clinics
         Task<bool> IsClinicCodeExistsAsync(string clinicCode);
 
         Task<List<Clinic>> GetActiveClinicsAsync();
+
+        Task<PagedResult<Clinic>> GetPagedAsync(
+        string? searchTerm,
+        bool? isActive,
+        int pageNumber,
+        int pageSize);
+
     }
 }

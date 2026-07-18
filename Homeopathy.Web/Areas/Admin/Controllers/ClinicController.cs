@@ -1,7 +1,13 @@
-﻿using Homeopathy.Application.Features.Clinics.Commands.CreateClinic;
+﻿using Homeopathy.Application.Common.Results;
+using Homeopathy.Application.DTOs.Clinics;
+using Homeopathy.Application.Features.Clinics.Commands.CreateClinic;
+using Homeopathy.Application.Features.Clinics.Queries.GetClinicList;
 using Homeopathy.Application.Interfaces.Clinics;
 using Homeopathy.Web.Areas.Admin.ViewModels.Clinic;
+using Homeopathy.Web.Areas.Admin.ViewModels.Common;
 using Homeopathy.Web.Services.FileStorage;
+using Homeopathy.Web.UI.Factories;
+using Homeopathy.Web.UI.Pagination;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Homeopathy.Web.Areas.Admin.Controllers
@@ -10,20 +16,35 @@ namespace Homeopathy.Web.Areas.Admin.Controllers
     {
         private readonly IClinicService _clinicService;
         private readonly IFileStorageService _fileStorageService;
+        private readonly IPaginationBuilder _paginationBuilder;
+        private readonly IGridFactory _gridFactory;
         public ClinicController(
        IClinicService clinicService,
-       IFileStorageService fileStorageService)
+       IFileStorageService fileStorageService,IPaginationBuilder paginationBuilder, IGridFactory gridFactory)
         {
             _clinicService = clinicService;
             _fileStorageService = fileStorageService;
+            _paginationBuilder = paginationBuilder;
+            _gridFactory = gridFactory;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(ClinicListRequest request)
         {
-            var clinics = await _clinicService.GetAllAsync();
+
+            var result = await _clinicService.GetAllAsync(request);
 
             var model = new ClinicIndexViewModel
             {
-                Clinics = clinics
+                Filter = new SearchFilterViewModel
+                {
+                    SearchTerm = request.SearchTerm,
+                    IsActive = request.IsActive
+                },
+
+                Grid = _gridFactory.Create(
+                    result,
+                    request,
+                    Url,
+                    nameof(Index))
             };
 
             return View(model);

@@ -3,6 +3,8 @@ using Homeopathy.Application.Extensions;
 using Homeopathy.Infrastructure.Extensions;
 using Homeopathy.Infrastructure.Identity;
 using Homeopathy.Web.Services.FileStorage;
+using Homeopathy.Web.UI.Factories;
+using Homeopathy.Web.UI.Pagination;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddApplication();
 builder.Services.Configure<DefaultAdminOptions>(
     builder.Configuration.GetSection(DefaultAdminOptions.SectionName));
 builder.Services.AddScoped<IFileStorageService, FileStorageService>();
+builder.Services.AddScoped<IPaginationBuilder, PaginationBuilder>();
+builder.Services.AddScoped<IGridFactory, GridFactory>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Clinics";
 }
-
+<partial name="_SearchFilter" model="Model.Filter" />
 @await Html.PartialAsync("_PageHeader",
 new PageHeaderViewModel
 {
@@ -37,9 +37,9 @@ new PageHeaderViewModel
 
                 <tbody>
 
-                    @if (Model.Clinics.Any())
+                    @if (Model.Grid.Items.Any())
                     {
-                        foreach (var clinic in Model.Clinics)
+                        foreach (var clinic in Model.Grid.Items)
                         {
                             <tr>
 
